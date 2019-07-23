@@ -25,3 +25,10 @@ $ docker build -t nodeapp:v1 .
 
 run image:
 $ docker run nodeapp:v1
+
+In order to have the count system we need a docker we need REDIS
+I order to configure redis with our application we need docker-compose
+
+install docker-compose (sudo apt install docker-compose)
+
+create a file docker-compose

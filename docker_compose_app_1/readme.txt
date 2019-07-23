@@ -19,3 +19,9 @@ building our node app
 # to make sure that's the case we're going to first copy over only the package
 # not just on file. We'll then run NPM install to get all of our different
 # dependencies and then we'll copy over all of our source code with copy (dot) (dot)
+
+create image:
+$ docker build -t nodeapp:v1 .
+
+run image:
+$ docker run nodeapp:v1

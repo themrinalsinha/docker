@@ -35,3 +35,11 @@ create a file docker-compose
 const client  = redis.createClient({
     host: 'redis-server' // this will  automatically connect to the redis server using the name given 'redis-server'
 })
+
+starting docker-compose and ending.
+start: docker-compose up -d (for daemon mode)
+end  : docker-compose down
+-----------------------------------------------
+
+// Container maintainance with compose:
+-> first we'll and some line of code in index.js file to forcefully crash when someone visits our root node.

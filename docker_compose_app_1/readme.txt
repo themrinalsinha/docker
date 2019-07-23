@@ -43,3 +43,14 @@ end  : docker-compose down
 
 // Container maintainance with compose:
 -> first we'll and some line of code in index.js file to forcefully crash when someone visits our root node.
+-> doing this will crash the node app server but the redis server will stay up.
+   in this scenario we want our server to start back again automatically.
+
+Exiting status:
+0            -> we exited and everything is OK
+1, 2, 3, etc -> We exited because something went wrong!
+Exiting status actually helps us to take whether to restart or not.
+
+Docker compose comes with different restart policies like:
+"no", "always", "on-failure", "unless-stopped"
+

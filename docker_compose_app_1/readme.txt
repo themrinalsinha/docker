@@ -32,3 +32,6 @@ I order to configure redis with our application we need docker-compose
 install docker-compose (sudo apt install docker-compose)
 
 create a file docker-compose
+const client  = redis.createClient({
+    host: 'redis-server' // this will  automatically connect to the redis server using the name given 'redis-server'
+})

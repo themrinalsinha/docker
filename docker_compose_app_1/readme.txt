@@ -52,5 +52,19 @@ Exiting status:
 Exiting status actually helps us to take whether to restart or not.
 
 Docker compose comes with different restart policies like:
-"no", "always", "on-failure", "unless-stopped"
+-> "no" = never attempts to restart this container if it stops or crashes
+-> "always" = if this container stops "for any reaon" always attempts to restart it
+-> "on-failure" = Only restart if the container stops with an error code
+-> "unless-stopped" = always restart unless we (the developer) forcibly stop it
+
+So, we specify "restart: always" for our node app container
+version: '2'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: on-failure/always/unless-stopped/no
+    build: .
+    ports:
+      - "8080:8081"
 

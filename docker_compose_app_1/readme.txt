@@ -68,3 +68,7 @@ services:
     ports:
       - "8080:8081"
 
+// checking running container status using docker compose
+$ docker-compose ps // It'll list out all the running container and make
+sure you run it in the same directory where you docker-compose.yml file in.
+

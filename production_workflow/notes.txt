@@ -3,3 +3,17 @@
 flow that we are going to see:
 [Deployment -> Testing -> Development]
 will see what are tech needed to setup this development workflow
+
+-> Our development workflow is going to revolve around creating a github repository
+this repository is going to kind of serve as a central point of coordination for all
+code that we'll write.
+
+-> our github repository is going to have two different branch one is going to be
+feature branch which is essentially the development branch. The other one will be
+master branch, it represents our very clean working copy of our codebase.
+
+-> Any flow that we make to this branch right here are going to be eventually
+automatically deploy to on hosting provider. Wer are never going to push our code
+directly to the master branch we'll push all our changes to the feature branch (all push and pull)
+Once you push your changes to the feature branch you are going to create a pull request to merge
+changes to the master branch.

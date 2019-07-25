@@ -1,0 +1,5 @@
+=== Creating a production grade workflow ===
+
+flow that we are going to see:
+[Deployment -> Testing -> Development]
+will see what are tech needed to setup this development workflow

@@ -50,3 +50,59 @@ Why Kubernetes ?
 -> Community
 
 Eg: Pokemon go is the largest deployment on Kubernetes
+
+===========================================================
+
+Kubernetes Architecture
+=======================
+
+Objective:
+    1. High level Overview
+    2. Kubernetes Master
+    3. Worker node
+    4. Kubernetes Architecture
+    5. Terminologies
+
+master -> cluster -> worker nodes -> pods -> containers
+
+Kubernetes Master:
+-> Responsible for managing entire cluster
+-> Components responsbile for Kubernetes master
+    -> it coordinates all the activities inside cluster and communicates with the worker nodes
+    -> When you install Kubernetes on your system 4 important componets get installed for master
+        1. API server - kind of a gate keeper for entire cluster, if you wnt to create, update,
+           delete or even update kubernets object it has to go through API server. API server
+           configures and validates the API servers such as pods, services, application controllers
+           and it is also responsible for exposing various apis.
+           eg: Kubectl, UI
+        2. Schedular - is responsibe for physically scheduling pods, based on configuration, it schedules
+           pods.
+        3. Controll manager - there are 4 controllers behind controll manager they are node controller,
+           duplication controller, application controller, api controller they are responsible for overall
+           health of entire cluster
+        4. It ensures that nodes are up and running all the time and as mentioed in the config file
+           that amount of pod file are running.
+        5. etcd - It is a distributed key value light weight database, it is developed by corrois,
+           it is very populer key, value database, kubernetes is going to be the centrial database
+           for everything and any point of time. it is going to be the single source of truth.
+        above mentiond are the 4 important components of kubernetes master
+        which are: API Server, Scheduler, Controll manager, etcd
+
+Kubernetes Worker Node:
+it can be any virtual machine, physical server, where containers are deployed,
+every node in kubernetes cluster must run a container at runtime such as docker or rocket.
+there are two other kubernetes components required to communicate with kubernetes master,
+they are "kubelet (Api Server)" and "Kube-Proxy", so what are they...
+    -> Kubelet is a primary node agent that runs on each worker node, inside a cluster
+       so the primary objective of this kubelet is to ensure that pods are running, if it finds
+       any issues with the running pods it tries to reset them on the same node, but if  there is and
+       issue with the node itself, the kubernetes master will decides and recreate the pod on another healty node.
+    -> Kube-Proxy is a critical element inside a worker node it is responsible for maintaining the internet in the cluster
+       it essentially maintains the distributed networks, across all the nodes, pods and across all containers and it also
+       exposes services to the outside world. It is essentially the core networking component inside the kubernetes
+
+    -> PODS and containers -> POD is basically a scheduling unit in kubernetes, each POD contains of 1 or more containers,
+       most cases there will be 1 container, there can be case where more that 2 containers are running
+       inside the POD, that happends when there is dependencies.
+       Primary advantage of POD is, we can deploy multiple dependent containers.
+Diagram: https://luludansmarue.github.io/kubernetes-docker-lab/k8s/architecture.html

@@ -1,0 +1,83 @@
+Introduction to kubernetes
+==========================
+
+(COE's) Containers Orchestration Engine
+----------------------------------------
+Important Questions:
+Google runs average of 2 Billion Containers every week
+-> How are these containers created and managed at such large scale
+-> How do all these containers connect and communicate
+-> How do you scale these containers as per the traffic demands
+
+Concepts:
+Objective:
+    1. When COE is not always required ?
+        > not required for small companies
+    2. But, when that will be a problem ?
+    3. What is Container Orchestration Engine ?
+    4. COE features
+
+What is Container Orchestration Engine ?
+-> Container Orchestration Engine automates deploying,
+   scaling, & managing containerized applications on a
+   group of servers.
+   eg: tools availabe are: Kubernetes, Docker Swarm, Apache Mesos
+
+Features:
+-> clustering
+-> scheduling
+-> scalability
+-> Load balancing
+-> Fault Tolerance
+-> Deployment (different methods of deployment)
+
+
+TOP 3 Container Orchestration Engines
+--------------------------------------
+Most people are familiar with Kubernetes as one of the best
+container Orchestration engine (COEs)
+
+Objective:
+-> Top 3 COE's
+-> Marathon by Apache Mesos
+-> Docker Swarm
+-> Kubernetes
+-> Cloud specific COE's
+-> choosing COE's
+
+Marathon (Apacha Mesos)
+-----------------------
+-> Apacha Mesos is an open-source cluster manager
+-> Marathon framework for containers Orchestration
+-> has more than 20 framework
+-> More complex architecture than swarm
+Typical users
+    -> Large enterprises
+    -> Which requires lot of compute such as big data
+    -> driven by developers
+    -> need an ops team to manage
+
+Docker Swarm
+-------------
+-> written in golang
+-> easy to understand and get started
+-> simple architecture than kubernetes and Mesos
+Typical Users:
+    -> smaller teams (startups and medium-size companies)
+    -> typically greenfield projects
+    -> developer-driven temas who need to deploy product
+
+Kubernetes
+-----------
+-> Strongest community that anyone other COE's
+-> straight out of google inc.
+-> managed by cncf
+
+
+Cloud specific container services
+----------------------------------
+AWS, Azure, GCM (cloud providers)
+-> Google Kubernetes Engine (GKE)
+-> EC2 Container Servies
+-> Azure Container Services
+

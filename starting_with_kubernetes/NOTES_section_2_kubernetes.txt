@@ -1,0 +1,52 @@
+Kubernetes - Overview
+=====================
+
+Objectives:
+    Part 1:
+        -> What is Kubernetes ?
+        -> History @ Google Inc.
+        -> Current Status (Goals and who is managing it)
+    Part 2:
+        -> Why Kubernetes is best COEs?
+           (largest deploment so far, various status why it is the best)
+
+PART: 1
+=======
+What is Kubernetes ?
+--------------------
+it is an open-source container orchestratin engine to
+manage containerized apps @ large scale. Things it helps
+in managing in are: cluster management, scheduling, service discovery monitooring
+secrets management & more...
+
+Kubernetes is born and designed at google, and later on google donated it to
+cloud native foundation (CNCF) since then it is governed and maintained by CNCF
+
+History @ Google Inc.
+----------------------
+-> Google is running containers for more than a Decade
+-> Runs billions of containers every week
+-> Gmail, Youtube, Search ... runs on containers
+-> Kubernetes was released in 2014, so how is google managing all their service for more than a decade
+-> "BORG" is propritary container manager of google
+-> Kubernetes is a slimed down verison of "BORG"
+-> released Kubernetes v1 around mid 2015
+Goals and consideration:
+    1. Empower application developers
+    2. Provide standard deployment interface
+    3. Build on modular API code
+
+Also, called as K8s - Kubernetes
+
+PART: 2
+========
+Why Kubernetes ?
+----------------
+-> By Google Inc.
+-> Denoted to CNCF and Open-source
+-> Maturity
+-> Features (have most features)
+-> Easy Integrations
+-> Community
+
+Eg: Pokemon go is the largest deployment on Kubernetes

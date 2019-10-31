@@ -1,0 +1,41 @@
+Kubernetes Getting Started
+--------------------------
+Section 1: Prerequsites
+-> Monolithic
+-> MicroServices
+-> Containers
+-> Physical vs. VM vs. Containers
+-> Docker
+
+Section 2: Introduction to Kubernetes
+-> Container Orchestration Engine
+-> Top-3 COE's
+-> Kubernetes?
+-> Kubernetes Architecture
+
+Section 3: Setting up Kubernetes
+-> Kubernetes installation methods
+-> Play with K8's
+-> Minikube
+-> Google Kubernetes Engine
+-> Kubeadm
+-> Kubectl
+
+Section 4: Pods
+-> Pods
+
+Section 5: Controllers
+-> Replication Controller
+-> ReplicaSet
+-> Deployments
+-------------------------------
+
+1. Connect apps (services)
+How do we connect application or pods internally or enternally
+inside kubernetes clusters. Expose applications publically onto internet
+
+2. Storage
+what are the different storage options what you can use to store
+temperorily or permanantly data
+
+3. Configurations - Managing sensitive and non-sensitive configataion in cluster

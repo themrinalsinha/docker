@@ -85,3 +85,51 @@ output: deployment.apps/kubernetes-bootcamp created
 now let's do the final testing by displaying the pods that are create as part of this deploymennt:
 $ kubectl get po
 you will see there is one pod which is running.
+
+=================================================================================================
+
+Working with kubernetes clusters - How do you install and configure multi-node kubernetes cluster ?
+-------------------------------------------------------------------------------------------------
+
+Imagine your management asked you to setup three node development setup in your companies
+infrastructure, in this scenarios how will you configure cluster.
+lets learn about kubeadm.
+
+Objective:
+----------
+Concept
+    a. Overview of kubeadm
+    b. kubeadm commands
+
+Demo:
+    a. Pre-requesties
+    b. Insatalling softare applications
+    c. Configuring master
+    d. Join worker node
+    e. Test
+
+What is kubeadm?
+-> it is a command line utility that helps with installing
+    and configuring kubernetes cluster
+
+kubeadm commands:
+-----------------
+$ kubeadm init // on master
+    kubeadm init [flags]
+    it will initialize the kubernetes master node, run this command whenever
+    you want to configure any node as master node.
+
+$ kubeadm join // on worker
+    kubeadm join --token [] --discovery-token-ca-cert-hash []
+    it is used to initialize the worker node, run this command whenever you want
+    to configure any node as worker node inside the cluster.
+
+$ kubeadm token
+    kubeadm token [create/delete/list/generate] {flags}
+    this command is used to create token
+
+$ kubeadm version
+    kubeadm version [flags]
+
+$ kubeadm uprade
+    kubeadm upgrade plan [version] [flag]

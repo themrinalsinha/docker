@@ -1,0 +1,20 @@
+SETTING UP KUBERNETES ENVIRONMENT
+==================================
+
+NOTE: to learn and practive docker:
+https://labs.play-with-docker.com/
+
+Kubernetes installation methods:
+--------------------------------
+Objectives:
+1. Different ways of installing kubernetes
+-> Play-with-k8s (https://labs.play-with.k8s.com) - to practice online
+-> minikube (installing kubernets with small configuration all one setup
+            same system having master and worker nodes)
+-> kubeadm - goto installatation method
+-> other cloud services:
+    -> Google Kubernetes Engine (GKE)
+    -> Amazon EKS
+    -> Azure Kubernetes Service (AKS)
+
+========================================================

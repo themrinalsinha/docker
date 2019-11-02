@@ -133,3 +133,64 @@ $ kubeadm version
 
 $ kubeadm uprade
     kubeadm upgrade plan [version] [flag]
+
+configuring kubernetes by: kubeadm
+installing | testing
+----------   -------
+
+Pre-reqs:
+-> 3 GB or more RAM, 3 CPU or more
+-> Full network connectivity among all machine in the cluster
+-> disable swaps on all nodes
+-> disable selinux on all nodes
+
+Steps:
+-> we'll create VM which are part of my k8s cluster (master & worker nodes)
+-> disable SELinux and SWAP on all nodes
+-> Install Kubeadm, kubelet, kubectl, and docker on all nodes
+    -> start and enable docker and kubelet on all nodes
+-> initialize the master nodes
+-> configure pod network (where all the pod can communicate inside)
+-> join worker nodes to the cluster
+
+
+MASTER -----> worker 1
+        |---> worker 2
+        |---> worker 3
+
+-> to disable swap use command:
+we need to do this becuase of performance issues
+$ swapoff -a
+
+-> disable SELinux on all nodes:
+$ setenforce 0
+$ sed -i 's/enforcing/disabled/g' /etc/selinux/config
+$ grep disable /etc/selinux/config | grep -v '#'
+SELINUX=disable
+then reboot all nodes
+
+installing docker
+$ yum update -y
+$ yum install -y docker
+then enable and start docker services
+then install kubeadm, kubelet, kubectl
+
+Initialize master node:
+$ kubeadm init --pod-network-cidr=10.240.0.0/16
+after running this, to start your cluster, you need to run the following as regular commnd
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernete/admin.conf $HOME/.kube/config
+    sudo chon $(id -u):$(id -g) $HOME/.kube/config
+
+after initializing master node, you need to configure pod network
+-----------------------------------------------------------------
+
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Docurment/kube-flannel.yml
+
+Join worker node to the cluster:
+--------------------------------
+run the below command on all he worker nodes.
+$ kubeadm join --token [...] 10.240.0.1:6443 --discovery-token-ca-cert-hash sha256:xxxxxx
+
+tokens expires after 24 hours, in that case run:
+kubeadm token create --print-join-commad

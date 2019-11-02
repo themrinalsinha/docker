@@ -18,3 +18,70 @@ Objectives:
     -> Azure Kubernetes Service (AKS)
 
 ========================================================
+Play With K8's
+--------------
+How to make kubernetes cluster and do the deployment.
+Image that, you want to quickly test something on your kubernetes cluster
+Unfortunaely, it is not readily available.
+
+Objective:
+-----------------------------------
+Part 1: Overview of play-with-k8's
+Part 2: Review Demo
+        a. Add new instance
+        b. Configure "master"
+        c. configure "worker node"
+        d. test and validate
+
+https://labs.play-with-k8s.com provides a kubernetes playground, this will help
+you learn and play about kubernets provided by docker and created by tutorius
+released in mid 2017. You need to have docker account is required,
+create k8s cluster in seconds. 4 hour of time limit. Good for experiments and learning.
+
+before configuring master node
+you need to
+1. add new instance.
+so set it up as master node using kubeadm use the command below.
+the below command will initiate any node as master
+$ kubeadm init --apiserver-advartise-address $(hostname -i)
+
+it will give in its output somehting like this:
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join 192.168.0.23:6443 --token lk9ume.noyzu2wzjp5nt97e --discovery-token-ca-cert-hash sha256:3ca8b6b353a416a35a668f5fe6755154163f85440c2af524453b6582ab353822
+
+once you are done configuring the master node, they you'll configure the network plugin.
+this network plugin will help us establishing communication between all the pods on all nodes inside the cluster
+and there are various plugins such as flannel, calico & weave, to establish you just have to run the below command.
+kubectl apply -n kube-system -f \
+    "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
+post running this command your master node is ready.
+Now you need to join master nodes to the server usig kubedem join command.
+
+2. join worker node to the cluster:
+    $ kubeadm join --token [...] --discovery-token-ca-cert-hash [...]
+    the above join command will add this worker node to the cluster.
+    eg: kubeadm join 192.168.0.23:6443 --token lk9ume.noyzu2wzjp5nt97e --discovery-token-ca-cert-hash sha256:3ca8b6b353a416a35a668f5fe6755154163f85440c2af524453b6582ab353822
+
+    to check if the nodes are registerd from the master node:
+    type: $ kubectl get no
+    [node1 ~]$ kubectl get no
+Output---
+NAME      STATUS    ROLES     AGE       VERSION
+node1     Ready     master    30m       v1.11.3
+node2     Ready     <none>    6m        v1.11.3
+node3     Ready     <none>    54s       v1.11.3
+
+Now, let's go and deploy sample application and check if everything is working fine.
+NODE 1 is master node.
+Node 2 and node 3 are worker node.
+so now on master node run command:
+
+$ kubectl run kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port 8080
+the above command will deploy an application on the server.
+output: deployment.apps/kubernetes-bootcamp created
+
+now let's do the final testing by displaying the pods that are create as part of this deploymennt:
+$ kubectl get po
+you will see there is one pod which is running.

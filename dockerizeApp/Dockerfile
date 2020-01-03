@@ -17,3 +17,6 @@ EXPOSE 1337
 
 # Now create an entrypoint the we to run everytime
 CMD ["npm", "start"]
+
+# to run this buid image: use command
+# docker run -it -p 8002:1337 --name mynodeapp webappsample
